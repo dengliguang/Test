@@ -1,0 +1,54 @@
+表名：学生表    课程表   成绩表  教师表   学生选课表
+1.用户表：(Admin)
+字段名：用户名(user_name):就是学生、教师ID   密码(password)   
+CREATE TABLE `NewTable` (
+`user_name`  varchar(100) NOT NULL ,
+`password`  varchar(50) NOT NULL 
+);
+
+ALTER TABLE Admin ADD unique(`user_name`);     ---增加唯一约束
+
+2.学生表(Student)
+字段名：学号(stu_id)  姓名(stu_name)  年龄(stu_age)  性别(stu_sex)  院系(stu_department) 
+CREATE TABLE Student (
+			stu_id VARCHAR(50) not null UNIQUE,
+			stu_name VARCHAR(100) not null ,
+			stu_age int(25) not null,
+			stu_sex VARCHAR(25) not null,
+			stu_department VARCHAR(100) not null );
+
+
+3.课程表(Course)
+字段名：课程号(cour_id)  课程名称(cour_name)  
+CREATE TABLE Course(
+	cour_id int(25) not null UNIQUE PRIMARY KEY auto_increment,
+	cour_name int(100) not null UNIQUE
+);
+
+4.成绩表(Grade)
+字段名: 学号(stu_id)  课程号(cour_id)  成绩(grade)  
+CREATE TABLE Grade(
+	stu_id int(25) not null,
+	cour_id int(25) not null,
+	grade int(25) ,
+	PRIMARY KEY (stu_id,cour_id)
+);
+
+5.教师表(Teacher)
+字段名: 教师Id(tea_id)  姓名(tea_name)  
+CREATE table Teacher(
+	tea_id VARCHAR(50) not null UNIQUE,
+	tea_name VARCHAR(100) not null 
+);
+
+权限：
+1.学生只能选课，查询
+2.教师能管理课程，管理学生信息，查询
+3.用户名(user_name):就是学生、教师ID     
+
+
+
+
+
+
+
